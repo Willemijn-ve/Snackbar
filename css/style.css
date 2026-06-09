@@ -1,0 +1,425 @@
+/* Kleuren en lettertypes */
+
+:root {
+
+    --sand: #F5EEDF;
+    --gold: #B8924A;
+    --wood: #5C4632;
+    --forest: #1F3A2E;
+    --moss: #6E7F52;
+
+    --heading-font: "Montserrat", sans-serif;
+    --button-font: "Poppins", sans-serif;
+    --body-font: "Inter", sans-serif;
+}
+
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Pagina */
+
+body {
+    font-family: var(--body-font);
+}
+
+/* Achtergrond */
+
+.welcome-screen {
+
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    padding-bottom: 100px;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.35)
+        ),
+        url("../images/restaurant-background.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+/* Welkomstkaart */
+
+.welcome-card {
+
+    width: 750px;
+
+    background-color: rgba(245, 238, 223, 0.96);
+
+    border-radius: 30px;
+
+    padding: 4rem;
+
+    text-align: center;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo */
+
+.logo {
+
+    width: 140px;
+
+    margin-bottom: 2rem;
+}
+
+/* Titel */
+
+h1 {
+
+    font-family: var(--heading-font);
+
+    font-size: 4rem;
+
+    color: var(--forest);
+
+    margin-bottom: 1.5rem;
+}
+
+/* Tekst */
+
+p {
+
+    font-family: var(--body-font);
+
+    color: var(--wood);
+
+    font-size: 1.3rem;
+
+    line-height: 1.7;
+
+    margin-bottom: 1.5rem;
+}
+
+/* Startknop */
+
+.start-button {
+
+    margin-top: 1rem;
+
+    background-color: var(--gold);
+
+    border: none;
+
+    color: white;
+
+    font-family: var(--button-font);
+
+    font-size: 1.5rem;
+
+    font-weight: 600;
+
+    padding: 22px 60px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.start-button:hover {
+
+    background-color: #9D7835;
+
+    transform: scale(1.04);
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+    .welcome-card {
+
+        width: 90%;
+
+        padding: 3rem;
+    }
+
+    h1 {
+
+        font-size: 3rem;
+    }
+}
+
+/* Promotion Screen */
+
+.promotion-screen {
+
+    min-height: 100vh;
+
+    background-color: var(--sand);
+
+    padding: 40px;
+}
+
+/* Header */
+
+.promotion-header {
+
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+.promotion-logo {
+
+    width: 120px;
+
+    margin-bottom: 20px;
+}
+
+.promotion-header h1 {
+
+    font-family: var(--heading-font);
+
+    color: var(--forest);
+
+    font-size: 3rem;
+
+    margin-bottom: 10px;
+}
+
+.promotion-header p {
+
+    font-size: 1.2rem;
+}
+
+/* Promotion Grid */
+
+.promotion-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+}
+
+/* Cards */
+
+.promotion-card {
+
+    background-color: white;
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.promotion-card h2 {
+
+    font-family: var(--heading-font);
+
+    color: var(--forest);
+
+    margin-bottom: 15px;
+}
+
+.price {
+
+    display: block;
+
+    margin-top: 20px;
+
+    margin-bottom: 20px;
+
+    font-size: 2rem;
+
+    font-weight: bold;
+
+    color: var(--gold);
+}
+
+/* Buttons */
+
+.promo-button {
+
+    background-color: var(--gold);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 15px;
+
+    padding: 15px 30px;
+
+    cursor: pointer;
+
+    font-family: var(--button-font);
+
+    font-size: 1.1rem;
+}
+
+.promo-button:hover {
+
+    background-color: #9D7835;
+}
+
+/* Continue Button */
+
+.continue-container {
+
+    text-align: center;
+
+    margin-top: 60px;
+}
+
+.continue-button {
+
+    background-color: var(--forest);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 20px;
+
+    padding: 20px 60px;
+
+    font-size: 1.4rem;
+
+    font-family: var(--button-font);
+
+    cursor: pointer;
+}
+
+.continue-button:hover {
+
+    background-color: var(--moss);
+}
+.promo-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+/* MENU SCREEN */
+
+.menu-screen {
+    min-height: 100vh;
+    background-color: var(--sand);
+    padding: 40px;
+}
+
+/* HEADER */
+
+.menu-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu-logo {
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.menu-header h1 {
+    font-family: var(--heading-font);
+    color: var(--forest);
+    font-size: 3rem;
+}
+
+.menu-header p {
+    font-size: 1.2rem;
+    color: var(--wood);
+}
+
+/* GRID */
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* CARD */
+
+.menu-card {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGE */
+
+.menu-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+/* TEXT */
+
+.menu-card h2 {
+    font-family: var(--heading-font);
+    color: var(--forest);
+}
+
+.menu-card p {
+    font-size: 1rem;
+}
+
+/* PRICE */
+
+.price {
+    display: block;
+    margin: 15px 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+/* BUTTON */
+
+.add-button {
+    background-color: var(--gold);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: var(--button-font);
+    transition: 0.3s;
+}
+
+.add-button:hover {
+    background-color: #9D7835;
+}
