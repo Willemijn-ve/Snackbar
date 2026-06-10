@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area42 Checkout</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="checkout-screen">
+
+        <header class="checkout-header">
+
+            <img src="../images/logonobackground.png" alt="Area42 Logo" class="checkout-logo">
+
+            <h1>Your Order</h1>
+
+            <p>Review your order before checkout</p>
+
+        </header>
+
+        <section id="cartItems">
+
+            <div class="checkout-item" data-price="39.95">
+
+                <img src="../images/familydeal.png" alt="Family Deal" class="checkout-image">
+
+                <div class="item-info">
+                    <h2>Area42 Family Deal</h2>
+                    <p>€69.00</p>
+                </div>
+
+                <div class="quantity-controls">
+                    <button class="minus">−</button>
+                    <span class="quantity">1</span>
+                    <button class="plus">+</button>
+                </div>
+
+                <button class="delete-btn">🗑</button>
+
+            </div>
+
+            <div class="checkout-item" data-price="9.95">
+
+                <img src="../images/vegansnackbox.png" alt="Cosmic Snack Box" class="checkout-image">
+
+                <div class="item-info">
+                    <h2>Vegan Snack Box</h2>
+                    <p>€24.50</p>
+                </div>
+
+                <div class="quantity-controls">
+                    <button class="minus">−</button>
+                    <span class="quantity">1</span>
+                    <button class="plus">+</button>
+                </div>
+
+                <button class="delete-btn">🗑</button>
+
+            </div>
+
+            <div class="checkout-item" data-price="3.95">
+
+                <img src="../images/Area42icetea.png" alt="Area42 Ice Tea" class="checkout-image">
+
+                <div class="item-info">
+                    <h2>Area42 Ice Tea</h2>
+                    <p>€3.95</p>
+                </div>
+
+                <div class="quantity-controls">
+                    <button class="minus">−</button>
+                    <span class="quantity">1</span>
+                    <button class="plus">+</button>
+                </div>
+
+                <button class="delete-btn">🗑</button>
+
+            </div>
+
+            <div class="checkout-item" data-price="7.50">
+
+                <img src="../images/placeholder-wine.jpg" alt="Area42 Specialty Wine" class="checkout-image">
+
+                <div class="item-info">
+                    <h2>Area42 Specialty Wine</h2>
+                    <p>€7.50</p>
+                </div>
+
+                <div class="quantity-controls">
+                    <button class="minus">−</button>
+                    <span class="quantity">1</span>
+                    <button class="plus">+</button>
+                </div>
+
+                <button class="delete-btn">🗑</button>
+
+            </div>
+
+            <div class="checkout-item" data-price="6.95">
+
+                <img src="../images/placeholder-cocktail.jpg" alt="Naturally Cocktail" class="checkout-image">
+
+                <div class="item-info">
+                    <h2>Naturally Cocktail</h2>
+                    <p>€8.95</p>
+                </div>
+
+                <div class="quantity-controls">
+                    <button class="minus">−</button>
+                    <span class="quantity">1</span>
+                    <button class="plus">+</button>
+                </div>
+
+                <button class="delete-btn">🗑</button>
+
+            </div>
+
+        </section>
+
+        <div class="total-section">
+
+            <h2>Total: €<span id="totalPrice">68.30</span></h2>
+
+        </div>
+
+        <div class="checkout-actions">
+
+            <button class="add-more-btn">
+                Add More
+            </button>
+
+            <button class="checkout-btn">
+                Checkout
+            </button>
+
+        </div>
+
+    </main>
+
+    <script src="../JS/checkout.js"></script>
+
+</body>
+
+</html>
