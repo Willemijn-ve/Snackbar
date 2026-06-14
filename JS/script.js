@@ -1,5 +1,7 @@
 document.getElementById("startButton").addEventListener("click", function () {
 
-    window.location.href ="../pages/promotionscreen.html";
+    localStorage.removeItem("cartCount");
+
+    window.location.href = "promotionscreen.html";
 
 });
