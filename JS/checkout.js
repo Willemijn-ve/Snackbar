@@ -1,82 +1,163 @@
-const items = document.querySelectorAll(".checkout-item");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const cartItems = document.getElementById("cartItems");
+const totalPrice = document.getElementById("totalPrice");
+
+
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 
 function updateTotal() {
 
-    let total = 0;
+    const total = cart.reduce((sum, item) => {
+        return sum + (item.price * item.quantity);
+    }, 0);
 
-    document.querySelectorAll(".checkout-item").forEach(item => {
-
-        const price = parseFloat(item.dataset.price);
-
-        const quantity = parseInt(
-            item.querySelector(".quantity").textContent
-        );
-
-        total += price * quantity;
-
-    });
-
-    document.getElementById("totalPrice").textContent =
-        total.toFixed(2);
+    totalPrice.textContent = total.toFixed(2);
 }
 
-items.forEach(item => {
 
-    const plus = item.querySelector(".plus");
+function renderCart() {
 
-    const minus = item.querySelector(".minus");
+    cartItems.innerHTML = "";
 
-    const quantityElement = item.querySelector(".quantity");
+    if (cart.length === 0) {
 
-    const deleteButton = item.querySelector(".delete-btn");
-
-    plus.addEventListener("click", () => {
-
-        let quantity = parseInt(quantityElement.textContent);
-
-        quantity++;
-
-        quantityElement.textContent = quantity;
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <h2>Your order is empty</h2>
+                <p>Add a product to your order to continue.</p>
+            </div>
+        `;
 
         updateTotal();
+        return;
+    }
+
+
+    cart.forEach((item, index) => {
+
+        const checkoutItem = document.createElement("div");
+
+        checkoutItem.classList.add("checkout-item");
+
+        checkoutItem.innerHTML = `
+            <img
+                src="${item.image}"
+                alt="${item.name}"
+                class="checkout-image"
+            >
+
+            <div class="item-info">
+                <h2>${item.name}</h2>
+                <p>€${item.price.toFixed(2)}</p>
+            </div>
+
+            <div class="quantity-controls">
+
+                <button
+                    class="minus"
+                    data-index="${index}"
+                >
+                    −
+                </button>
+
+                <span class="quantity">
+                    ${item.quantity}
+                </span>
+
+                <button
+                    class="plus"
+                    data-index="${index}"
+                >
+                    +
+                </button>
+
+            </div>
+
+            <button
+                class="delete-btn"
+                data-index="${index}"
+            >
+                ×
+            </button>
+        `;
+
+        cartItems.appendChild(checkoutItem);
 
     });
 
-    minus.addEventListener("click", () => {
+    updateTotal();
+}
 
-        let quantity = parseInt(quantityElement.textContent);
 
-        if (quantity > 1) {
+cartItems.addEventListener("click", function(event) {
 
-            quantity--;
+    const button = event.target;
 
-            quantityElement.textContent = quantity;
+    if (!button.dataset.index) {
+        return;
+    }
 
-            updateTotal();
+    const index = Number(button.dataset.index);
+
+
+    if (button.classList.contains("plus")) {
+
+        cart[index].quantity++;
+
+    }
+
+
+    if (button.classList.contains("minus")) {
+
+        if (cart[index].quantity > 1) {
+
+            cart[index].quantity--;
+
         }
 
+    }
+
+
+    if (button.classList.contains("delete-btn")) {
+
+        cart.splice(index, 1);
+
+    }
+
+
+    saveCart();
+    renderCart();
+
+});
+
+
+document
+    .querySelector(".add-more-btn")
+    .addEventListener("click", function() {
+
+        window.location.href = "menu.html";
+
     });
 
-    deleteButton.addEventListener("click", () => {
 
-        item.remove();
+document
+    .querySelector(".checkout-btn")
+    .addEventListener("click", function() {
 
-        updateTotal();
+        if (cart.length === 0) {
+
+            alert("Please add a product before checking out.");
+            return;
+
+        }
+
+        window.location.href = "terminal.html";
 
     });
 
-});
 
-document.querySelector(".add-more-btn").addEventListener("click", () => {
-
-    window.location.href = "menu.html";
-
-});
-
-document.querySelector(".checkout-btn").addEventListener("click", () => {
-
-    window.location.href = "terminal.html";
-
-});
-
-updateTotal();
+renderCart();
